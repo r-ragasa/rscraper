@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="323.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="323.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TextArea editable="false" prefHeight="300.0" prefWidth="402.0" text="Rodger's Little Scrapper - Pre-Alpha: Works on Windows.Just run the .exe file to start using it.Please note:1) Only the Local Tab works2) The program simply collects words from each document you drag into the list- it says which word came from which file and puts it in a list format3 ) You can export this &quot;text scrap report&quot; into 2 formats:- a .txt file or a .csv file4) For now, it can only scrap: .doc, .docx and .txt files" wrapText="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

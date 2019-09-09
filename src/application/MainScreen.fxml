@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="menuexitbutton" mnemonicParsing="false" onAction="#exitProgram" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="helpButton" mnemonicParsing="false" onAction="#showHelp" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Local">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <ListView fx:id="locallistview" prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor></ListView>
+                           </center>
+                           <bottom>
+                              <SplitPane dividerPositions="0.5" maxHeight="100.0" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <items>
+                                  <AnchorPane maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="localremovebutton" layoutY="30.0" mnemonicParsing="false" prefWidth="80.0" text="Remove" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                          <Button fx:id="localremoveallbutton" layoutX="237.0" layoutY="37.0" mnemonicParsing="false" prefWidth="80.0" text="Remove All" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="296.0">
+                                       <children>
+                                          <Button fx:id="scrapbutton" layoutX="122.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#scrapFiles" prefWidth="102.0" text="Import &amp; Export" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </bottom>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+                <Tab text="Server">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <top>
+                              <GridPane BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="userName" promptText="Username" />
+                                    <TextField fx:id="passWord" promptText="Password" GridPane.columnIndex="1" />
+                                    <TextField fx:id="hdbAddress" promptText="Host Database Address" GridPane.rowIndex="1" />
+                                    <TextField fx:id="dbPort" promptText="Database Port" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="pathtoTable" promptText="Path To Table (Database Name)" GridPane.rowIndex="2" />
+                                    <TextField fx:id="tableName" promptText="Table Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <ListView fx:id="serverlistview" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <bottom>
+                              <SplitPane dividerPositions="0.5" maxHeight="100.0" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <items>
+                                  <AnchorPane maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <Button fx:id="serverremovebutton" layoutX="115.0" layoutY="67.0" mnemonicParsing="false" prefWidth="80.0" text="Remove" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                          <Button fx:id="serverremoveallbutton" layoutX="203.0" layoutY="37.0" mnemonicParsing="false" prefWidth="80.0" text="Remove All" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="296.0">
+                                       <children>
+                                          <Button fx:id="serverexportbutton" layoutX="122.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#exportFiles" prefWidth="80.0" text="Export" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                          <Button fx:id="serverimportbutton" layoutX="51.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#importFiles" prefWidth="80.0" text="Import" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </bottom>
+                        </BorderPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <bottom>
+            <Pane prefHeight="18.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ProgressBar fx:id="progressbar" prefWidth="200.0" progress="0.0" />
+                  <Label fx:id="statusbarlabel" layoutX="211.0" layoutY="1.0" />
+               </children>
+            </Pane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
